@@ -2,9 +2,10 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
-import { ClusterServiceService } from './api/clusterService.service';
-import { ProjectServiceService } from './api/projectService.service';
-import { VirtualMachineServiceService } from './api/virtualMachineService.service';
+import { ClustersService } from './api/clusters.service';
+import { MachinesService } from './api/machines.service';
+import { ProjectsService } from './api/projects.service';
+import { VirtualMachinesService } from './api/virtualMachines.service';
 
 @NgModule({
   imports:      [],

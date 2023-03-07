@@ -1,4 +1,4 @@
-## ruddur-client-typescript-angular@0.0.2
+## ruddur-client-typescript-angular@0.0.5
 
 ### Building
 
@@ -19,7 +19,7 @@ Navigate to the folder of your consuming project and run one of next commands.
 _published:_
 
 ```
-npm install ruddur-client-typescript-angular@0.0.2 --save
+npm install ruddur-client-typescript-angular@0.0.5 --save
 ```
 
 _without publishing (not recommended):_
