@@ -1,6 +1,6 @@
 {
   "name": "ruddur-client-typescript-angular",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "OpenAPI client for ruddur-client-typescript-angular",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
