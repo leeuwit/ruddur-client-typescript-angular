@@ -1,4 +1,4 @@
-## @
+## ruddur-client-typescript-angular@0.0.0
 
 ### Building
 
@@ -19,7 +19,7 @@ Navigate to the folder of your consuming project and run one of next commands.
 _published:_
 
 ```
-npm install @ --save
+npm install ruddur-client-typescript-angular@0.0.0 --save
 ```
 
 _without publishing (not recommended):_
@@ -39,7 +39,7 @@ npm link
 
 In your project:
 ```
-npm link 
+npm link ruddur-client-typescript-angular
 ```
 
 __Note for Windows users:__ The Angular CLI has troubles to use linked npm packages.
@@ -54,7 +54,7 @@ In your Angular project:
 
 ```
 // without configuring providers
-import { ApiModule } from '';
+import { ApiModule } from 'ruddur-client-typescript-angular';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -73,9 +73,9 @@ export class AppModule {}
 
 ```
 // configuring providers
-import { ApiModule, Configuration, ConfigurationParameters } from '';
+import { ApiModule, Configuration, ConfigurationParameters } from 'ruddur-client-typescript-angular';
 
-export function apiConfigFactory (): Configuration => {
+export function apiConfigFactory (): Configuration {
   const params: ConfigurationParameters = {
     // set configuration parameters here.
   }
@@ -93,7 +93,7 @@ export class AppModule {}
 
 ```
 // configuring providers with an authentication service that manages your access tokens
-import { ApiModule, Configuration } from '';
+import { ApiModule, Configuration } from 'ruddur-client-typescript-angular';
 
 @NgModule({
     imports: [ ApiModule ],
@@ -117,10 +117,10 @@ export class AppModule {}
 ```
 
 ```
-import { DefaultApi } from '';
+import { DefaultApi } from 'ruddur-client-typescript-angular';
 
 export class AppComponent {
-	 constructor(private apiGateway: DefaultApi) { }
+    constructor(private apiGateway: DefaultApi) { }
 }
 ```
 
@@ -152,10 +152,10 @@ export class AppModule {
 
 
 ### Set service base path
-If different than the generated base path, during app bootstrap, you can provide the base path to your service. 
+If different than the generated base path, during app bootstrap, you can provide the base path to your service.
 
 ```
-import { BASE_PATH } from '';
+import { BASE_PATH } from 'ruddur-client-typescript-angular';
 
 bootstrap(AppComponent, [
     { provide: BASE_PATH, useValue: 'https://your-web-service.com' },
@@ -164,7 +164,7 @@ bootstrap(AppComponent, [
 or
 
 ```
-import { BASE_PATH } from '';
+import { BASE_PATH } from 'ruddur-client-typescript-angular';
 
 @NgModule({
     imports: [],
@@ -188,7 +188,7 @@ export const environment = {
 
 In the src/app/app.module.ts:
 ```
-import { BASE_PATH } from '';
+import { BASE_PATH } from 'ruddur-client-typescript-angular';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -200,4 +200,27 @@ import { environment } from '../environments/environment';
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
-```  
+```
+
+### Customizing path parameter encoding
+
+Without further customization, only [path-parameters][parameter-locations-url] of [style][style-values-url] 'simple'
+and Dates for format 'date-time' are encoded correctly.
+
+Other styles (e.g. "matrix") are not that easy to encode
+and thus are best delegated to other libraries (e.g.: [@honoluluhenk/http-param-expander]).
+
+To implement your own parameter encoding (or call another library),
+pass an arrow-function or method-reference to the `encodeParam` property of the Configuration-object
+(see [General Usage](#general-usage) above).
+
+Example value for use in your Configuration-Provider:
+```typescript
+new Configuration({
+    encodeParam: (param: Param) => myFancyParamEncoder(param),
+})
+```
+
+[parameter-locations-url]: https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#parameter-locations
+[style-values-url]: https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.1.0.md#style-values
+[@honoluluhenk/http-param-expander]: https://www.npmjs.com/package/@honoluluhenk/http-param-expander
