@@ -44,7 +44,7 @@ import { Configuration }                                     from '../configurat
 })
 export class VirtualMachineServiceService {
 
-    protected basePath = 'https://cloud.andromeda.leeuwit.nl';
+    protected basePath = 'https://cloud.ruddur.dev';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
     public encoder: HttpParameterCodec;
