@@ -86,6 +86,15 @@ export class Configuration {
         else {
             this.credentials = {};
         }
+
+        // init default OAuth2 credential
+        if (!this.credentials['OAuth2']) {
+            this.credentials['OAuth2'] = () => {
+                return typeof this.accessToken === 'function'
+                    ? this.accessToken()
+                    : this.accessToken;
+            };
+        }
     }
 
     /**

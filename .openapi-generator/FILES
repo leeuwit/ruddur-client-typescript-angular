@@ -12,6 +12,8 @@ git_push.sh
 index.ts
 model/clustersCreateRequest.ts
 model/models.ts
+model/projectsAuthorizeUserRequest.ts
+model/projectsRevokeUserRequest.ts
 model/protobufAny.ts
 model/rpcStatus.ts
 model/v1alpha1AvailableMachinesResponse.ts
@@ -25,9 +27,11 @@ model/v1alpha1DeleteVirtualMachineResponse.ts
 model/v1alpha1KubeconfigResponse.ts
 model/v1alpha1ListClustersResponse.ts
 model/v1alpha1ListProjectsResponse.ts
+model/v1alpha1ListUsersForProjectResponse.ts
 model/v1alpha1ListVirtualMachinesResponse.ts
 model/v1alpha1MachineTypeAndAmount.ts
 model/v1alpha1MachineTypesResponse.ts
+model/v1alpha1UserAndRole.ts
 model/v1alpha1VirtualMachine.ts
 model/v1alpha1VirtualMachineOperatingSystemsResponse.ts
 model/v1alpha1VirtualMachineTypesResponse.ts
